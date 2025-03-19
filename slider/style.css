@@ -1,0 +1,116 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.slider{
+    background-color: aqua;
+    padding: 1rem;
+    width: 30%;
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+.btn{
+    height: fit-content;
+}
+
+.slider-elements{
+    background-color: red;
+    padding: 1rem;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.element{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: static;
+}
+
+.hidden{
+    position: absolute;
+}
+
+.next-element{
+    transform: translateX(160%);
+
+}
+
+.prev-element{
+    transform: translateX(-160%);
+
+}
+
+.enter-next{
+    animation-name: next;
+    animation-duration: 1000ms;    
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-delay: 300ms;
+    /* manter o estilo de 0% e position static */
+    animation-fill-mode: forwards;
+}
+
+@keyframes next {
+    0%{
+        transform: translateX(160%);
+    }
+    100%{
+        transform: translateX(0%);
+        position: static;
+    }
+}
+
+.enter-prev{
+    animation: prev 1000ms linear 300ms 1 normal forwards;
+}
+
+@keyframes prev {
+    0%{
+        transform: translateX(-160%);
+
+    }
+
+    100%{
+        transform: translateX(0%);
+        position: static;
+    }
+}
+
+.leave-current-left{
+    animation: current-to-left 1000ms linear 300ms 1 normal forwards;
+}
+@keyframes current-to-left {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-160%);
+    }
+}
+
+.leave-current-right{
+    animation: current-to-right 1000ms linear 300ms 1 normal forwards;
+}
+
+@keyframes current-to-right {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(160%);
+    }
+}
