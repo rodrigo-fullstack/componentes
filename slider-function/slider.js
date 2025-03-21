@@ -7,7 +7,7 @@ const nextBtn = document.querySelector('.btn.next');
 const prevBtn = document.querySelector('.btn.prev');
 
 initializeSlider();
-function initializeSlider(){
+export default function initializeSlider(){
     nextBtn.disabled = (count == elements.length - 1);
     nextBtn.addEventListener('click', passToNextElement);
     
